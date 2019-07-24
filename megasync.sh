@@ -1,0 +1,1 @@
+cp /usr/share/icons/Papirus/24x24/panel/megasynching.svg /usr/share/icons/hicolor/scalable/status/ && cp /usr/share/icons/Papirus/24x24/panel/mega* /usr/share/icons/ubuntu-mono-dark/status/24/ && cp /usr/share/icons/Papirus/24x24/panel/mega* /usr/share/icons/hicolor/scalable/status/

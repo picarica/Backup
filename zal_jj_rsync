@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# zaloha najzaujimavejsich mojich veci
+#
+
+ODKIAL="/home/picarica"
+ODKIAL1="/etc"
+
+EXCLUDE="zmaz mozilla/firefox/zit78i7f.default/Cache/ drive_c"
+
+KAM1="/run/media/picarica/565324e2-5f91-486b-91c6-6ad927484668/"
+#KAM2="/media/jj/5f447c05-8aa0-4b5d-9fcd-cec465da4104/zaloha-jj-2/"
+
+function zalohuj_disk ()
+{
+    if [ -d "$2" ]; then
+        cp "$2"BACKUP_TIME.txt $ODKIAL $ODKIAL1
+	 find / -iname "dosdevices" -exec rm -R {} \;
+         rsync -avL --progress --partial --delete --exclude-from=synchronizuj_exclude "$1" "$2"
+        kedy=`date "+%Y%m%d-%T"`;
+        echo $kedy >> "$2"BACKUP_TIME.txt
+        
+    else
+        echo -ne "\e[41mTento disk sa nenasiel:" $2
+        echo -e "\e[0m"
+        read -r -s -n 1 -t 10 -p "Stlac klavesu inak za 10 sekund pokracujem..." key;
+        echo;echo
+    fi
+}
+
+zalohuj_disk $ODKIAL $KAM1
+zalohuj_disk $ODKIAL1 $KAM1
+#zalohuj_disk $ODKIAL $KAM2
+

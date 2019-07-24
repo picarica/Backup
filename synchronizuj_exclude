@@ -1,0 +1,13 @@
+.thumbnails/*
+.cache/mozilla/firefox/orm03al5.default/cache2/*
+.cache/thunderbird/32m1anad.default/cache2/entries/*
+.local/share/Trash/*
+.local/share/baloo/*
+.cemu/drive_c
+.photoshop/drive_c
+.wine/drive_c
+.wow/drive_c
+.local/share/Steam
+.steam
+.*/drive_c
+VirtualBox VMs/*
