@@ -16,14 +16,14 @@ function zalohuj_disk ()
     if [ -d "$2" ]; then
         cp "$2"BACKUP_TIME.txt $ODKIAL $ODKIAL1
 	 find / -iname "dosdevices" -exec rm -R {} \;
-         rsync -avL --progress --partial --delete --exclude-from=synchronizuj_exclude "$1" "$2"
+         rsync -avL --progress --partial --delete --exclude-from=synchronyze_exclude "$1" "$2"
         kedy=`date "+%Y%m%d-%T"`;
         echo $kedy >> "$2"BACKUP_TIME.txt
         
     else
-        echo -ne "\e[41mTento disk sa nenasiel:" $2
+        echo -ne "\e[41mDrive not found:" $2
         echo -e "\e[0m"
-        read -r -s -n 1 -t 10 -p "Stlac klavesu inak za 10 sekund pokracujem..." key;
+        read -r -s -n 1 -t 10 -p "Press a key otherwise i'll continue..." key;
         echo;echo
     fi
 }
